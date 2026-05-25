@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bunny Run!</title>
+  <script>
+    const path = window.location.pathname;
+    if (path && !path.endsWith('/') && !path.endsWith('.html')) {
+      window.location.replace(path + '/' + window.location.search + window.location.hash);
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══ MENU SCREEN ══ -->
+<div id="menuScreen">
+  <h1>🐰 Bunny Run!</h1>
+  <p>Pilih level untuk memulai petualangan kelinci!</p>
+  <div class="level-grid">
+
+    <div class="level-card lv1" onclick="startGame(0)">
+      <div class="lv-num">1</div>
+      <div class="lv-name">🌿 Padang Rumput</div>
+      <div class="lv-desc">Kecepatan pelan, rintangan jarang. Cocok untuk pemula!</div>
+      <div class="lv-stars">⭐☆☆☆☆</div>
+    </div>
+
+    <div class="level-card lv2" onclick="startGame(1)">
+      <div class="lv-num">2</div>
+      <div class="lv-name">🌅 Padang Pasir</div>
+      <div class="lv-desc">Lebih cepat, rintangan mulai rapat. Tetap waspada!</div>
+      <div class="lv-stars">⭐⭐☆☆☆</div>
+    </div>
+
+    <div class="level-card lv3" onclick="startGame(2)">
+      <div class="lv-num">3</div>
+      <div class="lv-name">🌸 Hutan Merah</div>
+      <div class="lv-desc">Rintangan terbang muncul! Butuh double jump.</div>
+      <div class="lv-stars">⭐⭐⭐☆☆</div>
+    </div>
+
+    <div class="level-card lv4" onclick="startGame(3)">
+      <div class="lv-num">4</div>
+      <div class="lv-name">🌌 Galaksi Ungu</div>
+      <div class="lv-desc">Sangat cepat, rintangan padat dan bervariasi!</div>
+      <div class="lv-stars">⭐⭐⭐⭐☆</div>
+    </div>
+
+    <div class="level-card lv5" onclick="startGame(4)">
+      <div class="lv-num">5</div>
+      <div class="lv-name">💀 Malam Abadi</div>
+      <div class="lv-desc">Kecepatan maksimal. Hanya yang terbaik bisa bertahan!</div>
+      <div class="lv-stars">⭐⭐⭐⭐⭐</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ GAME SCREEN ══ -->
+<div id="gameScreen">
+  <div id="hud">
+    <span>Skor: <span id="score-val">0</span></span>
+    <span id="level-badge">Level 1</span>
+    <span id="lives">❤️❤️❤️</span>
+  </div>
+  <canvas id="gameCanvas"></canvas>
+</div>
+
+<!-- ══ OVERLAY ══ -->
+<div id="overlay">
+  <h2 id="ov-title"></h2>
+  <p  id="ov-body"></p>
+  <div class="btn-row">
+    <button class="btn btn-green" id="ov-restart">🔄 Main Lagi</button>
+    <button class="btn btn-red"   id="ov-exit">🚪 Keluar</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
